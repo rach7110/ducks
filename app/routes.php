@@ -38,7 +38,18 @@ Route::post('ducks', function()
 
     return Redirect::to('ducks')->withErrors($validator);
   } else {
-    return "Success!";
+    $duck = new Duck;
+    $duck->name = Input::get('name');
+    $duck->email = Input::get('email');
+    $duck->password = Hash::make(Input::get('password'));
+
+    $duck->save();
+
+    if ($duck->save()) {
+      return Redirect::to('ducks');
+    }  else {
+      return "There was an error with your entry. Please refresh the page and try again.";
+    }
   }
 
 });
