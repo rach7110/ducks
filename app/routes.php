@@ -17,8 +17,8 @@ Route::get('/', function() {
 
 Route::get('ducks', function() 
 {
-  // return View::make('duck-form');
-  dd(App::environment());
+  return View::make('duck-form');
+  // dd(App::environment());
 });
 
 // route to process the ducks form
