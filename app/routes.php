@@ -17,13 +17,28 @@ Route::get('/', function() {
 
 Route::get('ducks', function() 
 {
-  return View::make('duck-form');
+  // return View::make('duck-form');
+  dd(App::environment());
 });
 
 // route to process the ducks form
 Route::post('ducks', function()
 {
+  $rules = array(
+    'name' => 'required',
+    'email' => 'required|email|unique:ducks',
+    'password' => 'required',
+    'password_confirm' => 'required|same:password'
+  );
 
-  // process the form here
+  $validator = Validator::make(Input::all(), $rules);
+
+  if ($validator->fails()) {
+    $messages = $validator->messages();
+
+    return Redirect::to('ducks')->withErrors($validator);
+  } else {
+    return "Success!";
+  }
 
 });
