@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', function()
+Route::get('ducks', function() 
 {
-	return View::make('hello');
+  return View::make('duck-form');
+});
+
+// route to process the ducks form
+Route::post('ducks', function()
+{
+
+  // process the form here
+
 });
