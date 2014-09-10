@@ -17,7 +17,16 @@
         
         <div class="page-header">
           <h1><span class="glyphicon glyphicon-flash"></span> Ducks Fly!</h1>
-        </div>  
+        </div> 
+        <div class="error">
+          @if ($errors->has())
+      
+            @foreach ($errors->all() as $error)
+              {{ $error }}    
+            @endforeach
+      
+          @endif 
+        </div>
 
         <!-- FORM STARTS HERE -->
         <form method="POST" action="/ducks" novalidate>
