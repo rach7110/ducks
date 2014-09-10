@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/', function() {
+  return Redirect::to('ducks');
+});
+
 Route::get('ducks', function() 
 {
   return View::make('duck-form');
