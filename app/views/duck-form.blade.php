@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <style>
       body  { padding-bottom:40px; padding-top:40px; }
+      .validation { color: #D63301; background-color: #FFCCBA; }
     </style>
   </head>
   
@@ -18,14 +19,16 @@
         <div class="page-header">
           <h1><span class="glyphicon glyphicon-flash"></span> Ducks Fly!</h1>
         </div> 
-        <div class="error">
+        <div class="validation">
           @if ($errors->has())
       
             @foreach ($errors->all() as $error)
-              {{ $error }}    
+              <ul>
+                <li> {{ $error }} 
+              </ul>
             @endforeach
-      
-          @endif 
+
+          @endif  
         </div>
 
         <!-- FORM STARTS HERE -->
